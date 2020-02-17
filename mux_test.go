@@ -27,11 +27,11 @@ func TestMux(t *testing.T) {
 
 func TestRWMux(t *testing.T) {
 	var (
-		val  int
-		sink int
-		wg   sync.WaitGroup
-		mux  RWMux
+		val int
+		wg  sync.WaitGroup
+		mux RWMux
 	)
+
 	for i := 0; i < 10; i++ {
 		wg.Add(2)
 		go mux.Update(func() {
@@ -39,7 +39,7 @@ func TestRWMux(t *testing.T) {
 			wg.Done()
 		})
 		go mux.Read(func() {
-			sink = val
+			testsink = val
 			wg.Done()
 		})
 	}

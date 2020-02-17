@@ -27,11 +27,11 @@ func TestMultiMux(t *testing.T) {
 
 func TestRWMultiMux(t *testing.T) {
 	var (
-		val  int
-		sink int
-		wg   sync.WaitGroup
-		mux  MultiMux
+		val int
+		wg  sync.WaitGroup
+		mux MultiMux
 	)
+
 	for i := 0; i < 10; i++ {
 		wg.Add(2)
 		go mux.Update("key", func() {
@@ -39,7 +39,7 @@ func TestRWMultiMux(t *testing.T) {
 			wg.Done()
 		})
 		go mux.Read("key", func() {
-			sink = val
+			testsink = val
 			wg.Done()
 		})
 	}

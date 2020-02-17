@@ -3,8 +3,6 @@ package atoms
 import (
 	"os"
 	"testing"
-
-	"github.com/missionMeteora/journaler"
 )
 
 const (
@@ -13,8 +11,9 @@ const (
 	testErrInvalidSwapFmt  = "Swapped successfully when should have failed"
 )
 
+var testsink int
+
 func TestMain(m *testing.M) {
-	journaler.Notification("Running atoms test suite")
 	sc := m.Run()
 	os.Exit(sc)
 }
