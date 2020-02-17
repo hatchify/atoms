@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/PathDNA/atoms"
+	"github.com/hatchify/atoms"
 )
 
 func main() {
